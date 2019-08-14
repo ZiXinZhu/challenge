@@ -21,23 +21,16 @@ public class InsertController {
 
     @GetMapping("/add")
     public int add() {
-//        Long start=System.currentTimeMillis()/1000;
-//        for(int i=0;i<1000;i++){
-//            dao.add();
-//        }
-//        Long end=System.currentTimeMillis()/1000;
-//
-//        int l=(int)(end-start);
-//        System.out.println(l);
-
         return dao.add();
     }
-    @Permission(isPass = false)
+
+    @Permission(isPass = true)
     @GetMapping("/all")
     public List<GirlPO> girl(){
         return dao.all();
     }
 
+    @Permission(isPass = false)
     @GetMapping("/one")
     public GirlPO one(){
        return dao.one(1);
