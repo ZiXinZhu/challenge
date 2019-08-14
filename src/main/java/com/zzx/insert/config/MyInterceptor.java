@@ -20,6 +20,7 @@ public class MyInterceptor implements HandlerInterceptor {
             if((permission==null)||(permission.isPass())){
                 return true;
             }else {
+                response.sendRedirect("http://localhost:8088/login.html");
                 return false;
             }
         }
