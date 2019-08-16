@@ -29,7 +29,7 @@ public class RunableThread implements Runnable{
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
         message.setTo(target);
-        message.setSubject("猪猪侠");
+        message.setSubject("汀兰科技");
         message.setText("您好，您的邮箱验证代码为:" + code);
         try
         {

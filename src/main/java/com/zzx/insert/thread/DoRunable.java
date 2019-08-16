@@ -15,7 +15,7 @@ public class DoRunable {
 
     @GetMapping("/send")
     public String send() {
-        RunableThread emails=new RunableThread(sender,"1101648204@qq.com","863486267@qq.com","888888");
+        RunableThread emails=new RunableThread(sender,"1101648204@qq.com","1171859248@qq.com","888888");
         Thread thread=new Thread(emails);
         thread.start();
         return "success";
