@@ -13,6 +13,7 @@ public class DoFactory {
         BaoMaCar bmcar=factory.perduce(BaoMaCar.class);
         bmcar.run();
         bmcar.stop();
+
         BenChiCar bccar=factory.perduce(BenChiCar.class);
         bccar.run();
         bccar.stop();
