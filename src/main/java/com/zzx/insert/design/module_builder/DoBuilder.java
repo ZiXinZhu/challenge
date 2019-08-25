@@ -1,7 +1,7 @@
-package com.zzx.insert.design.builder;
+package com.zzx.insert.design.module_builder;
 
-import com.zzx.insert.design.builder.builder.CarBuilder;
-import com.zzx.insert.design.builder.car.AbstractCar;
+import com.zzx.insert.design.module_builder.builder.CarBuilder;
+import com.zzx.insert.design.module_builder.car.AbstractCar;
 
 import java.util.ArrayList;
 import java.util.List;

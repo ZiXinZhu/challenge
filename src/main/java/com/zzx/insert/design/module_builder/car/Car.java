@@ -1,4 +1,4 @@
-package com.zzx.insert.design.builder.car;
+package com.zzx.insert.design.module_builder.car;
 
 public class Car extends AbstractCar {
     @Override
