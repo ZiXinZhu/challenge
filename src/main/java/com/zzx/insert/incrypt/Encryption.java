@@ -1,4 +1,4 @@
-package com.zzx.insert;
+package com.zzx.insert.incrypt;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
