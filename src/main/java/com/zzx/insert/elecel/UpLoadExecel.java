@@ -18,7 +18,8 @@ public class UpLoadExecel {
 
     public List<GirlPO> readXls(byte[] bytes) throws IOException {
 
-        InputStream is =new ByteArrayInputStream(bytes);
+//        InputStream is =new ByteArrayInputStream(bytes);
+        InputStream is = new FileInputStream(new File("E:\\taobao.xls"));
         HSSFWorkbook hssfWorkbook = new HSSFWorkbook(is);
         GirlPO girlPO = null;
         List<GirlPO> list = new ArrayList<GirlPO>();

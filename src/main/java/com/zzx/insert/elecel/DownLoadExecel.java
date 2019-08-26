@@ -27,10 +27,10 @@ public class DownLoadExecel {
         HSSFSheet sheet = workbook.createSheet("sheet1");//创建工作表(Sheet)
         HSSFRow row = sheet.createRow(0);// 创建行,从0开始
         HSSFCell cell = row.createCell(0);// 创建行的单元格,也是从0开始
-        cell.setCellValue("ID");// 设置单元格内容
-        row.createCell(1).setCellValue("年龄");// 设置单元格内容,重载
-        row.createCell(2).setCellValue("身高");
-        row.createCell(3).setCellValue("时间");// 设置单元格内容,重载
+        cell.setCellValue("店名");// 设置单元格内容
+        row.createCell(1).setCellValue("金额");// 设置单元格内容,重载
+        row.createCell(2).setCellValue("goodsId");
+        row.createCell(3).setCellValue("user");// 设置单元格内容,重载
 
         for(int i=0;i<list.size();i++){
             HSSFRow rows = sheet.createRow(i+1);// 创建行,从1开始
@@ -41,7 +41,7 @@ public class DownLoadExecel {
             rows.createCell(3).setCellValue(new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date().getTime()));// 设置单元格内容,重载
 
         }
-        String filename="汀兰科技.xls";
+        String filename="taobao.xls";
         response.setHeader("Content-Disposition", "attachment;filename="+ URLEncoder.encode(filename, "utf-8"));
         OutputStream outputStream = response.getOutputStream();
         workbook.write(outputStream);//保存Excel文件
