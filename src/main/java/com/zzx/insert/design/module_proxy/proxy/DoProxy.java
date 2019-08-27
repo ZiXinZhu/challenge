@@ -32,6 +32,7 @@ public class DoProxy {
                 );
         iGamePlayer.killBoss();
         iGamePlayer.upGrrad();
+        iGamePlayer.login("zzx","123");
     }
 
 
