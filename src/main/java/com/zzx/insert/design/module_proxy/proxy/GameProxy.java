@@ -1,30 +1,27 @@
 package com.zzx.insert.design.module_proxy.proxy;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
+@Slf4j
 public class GameProxy implements InvocationHandler {
+    private Object object;
 
-/*
-
-   //被代理者
-    Class cls =null;
-    //被代理的实例
-    Object obj = null;
-    //我要代理谁
-    public GamePlayIH(Object _obj){
-        this.obj = _obj;
+    public GameProxy() {
     }
-    //调用被代理的方法
-    public Object invoke(Object proxy, Method method, Object[] args)
-            throws Throwable {
-        Object result = method.invoke(this.obj, args);
-        return result;
-    }*/
 
+    public GameProxy(Object object) {
+        this.object = object;
+    }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        return null;
+        log.info("before");
+        Object o= method.invoke(object,args);
+        log.info("after");
+        return o;
     }
+
 }
