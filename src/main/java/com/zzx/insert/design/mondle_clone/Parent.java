@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parent implements Cloneable {
-    private List<String> list=new ArrayList<>();
+    private ArrayList<String> list = new ArrayList<String>();
 
     @Override
     public Parent clone() {
         Parent parent=null;
         try {
             parent=(Parent) super.clone();
+            parent.list= (ArrayList<String>) this.list.clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
@@ -19,9 +20,5 @@ public class Parent implements Cloneable {
 
     public List<String> getList() {
         return list;
-    }
-
-    public void setList(List<String> list) {
-        this.list = list;
     }
 }
