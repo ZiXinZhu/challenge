@@ -14,7 +14,7 @@ public class WebRegister implements WebMvcConfigurer {
 //        需要拦截的路径
         registration.addPathPatterns("/**");
 //        不需要拦截的路径
-//        registration.excludePathPatterns("/user/*");
+//      registration.excludePathPatterns("/user/*");
     }
 
 }
