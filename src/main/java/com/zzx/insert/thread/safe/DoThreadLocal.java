@@ -1,7 +1,8 @@
 package com.zzx.insert.thread.safe;
 
 
-import org.apache.commons.collections4.CollectionUtils;
+//import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import java.util.ArrayList;
 import java.util.Collection;
