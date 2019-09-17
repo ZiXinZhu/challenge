@@ -1,11 +1,11 @@
 package com.zzx.insert.thread.safe;
 
 
-//import org.apache.commons.collections4.CollectionUtils;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
-import java.util.ArrayList;
-import java.util.Collection;
+
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -46,5 +46,18 @@ public class DoThreadLocal implements Runnable {
         System.out.println(String.valueOf(System.nanoTime()));
         System.out.println(String.valueOf(System.currentTimeMillis()));
         new Thread(new DoThreadLocal()).start();
+
+        //map遍历
+        Map<String,String> map=new HashMap<>();
+        map.put("a","b");
+        map.put("c","d");
+        for (String key: map.keySet()
+             ) {
+            System.out.println("key="+key+",val="+map.get(key));
+        }
+        System.out.println("------------------------------");
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.println("key= " + entry.getKey() + ",value= " + entry.getValue());
+        }
     }
 }
