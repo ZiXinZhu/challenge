@@ -1,4 +1,4 @@
-package com.zzx.insert.lambda;
+package com.zzx.insert.lambda.define;
 
 
 

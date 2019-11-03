@@ -1,6 +1,4 @@
-package com.zzx.insert.lambda;
-
-import lombok.val;
+package com.zzx.insert.lambda.define;
 
 import javax.swing.text.DateFormatter;
 import java.text.ParseException;
