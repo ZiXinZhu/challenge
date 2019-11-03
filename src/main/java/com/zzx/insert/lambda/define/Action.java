@@ -18,7 +18,10 @@ public class Action {
             System.out.println(a + b);
         }).start();
 
-        Show show = (c) -> c > 5;
+        Operate operate = (c) -> c > 5;
+
+        boolean b=operate.getResult(3);
+        System.out.println(b);
 
         ThreadLocal<DateFormatter> threadLocal = ThreadLocal
                 .withInitial(() -> new DateFormatter(new SimpleDateFormat("dd-MM-yyyy")));

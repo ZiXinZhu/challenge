@@ -2,13 +2,11 @@ package com.zzx.insert.lambda;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import static com.zzx.insert.lambda.StreamUseEntity.*;
 
 
