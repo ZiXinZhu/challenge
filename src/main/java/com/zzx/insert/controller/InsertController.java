@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
@@ -26,6 +27,20 @@ public class InsertController {
     @Autowired
     UpLoadExecel upLoadExecel;
 
+
+
+    @GetMapping("/zzz")
+    public void request(HttpServletRequest request,String s){
+        System.out.println("getRequestURI:"+request.getRequestURI());
+        System.out.println("getMethod:"+request.getMethod());
+        System.out.println("getServletPath:"+request.getServletPath());
+        System.out.println("getHeader:"+request.getHeader(s));
+        System.out.println("getContextPath:"+request.getContextPath());
+        System.out.println("getRemoteUser:"+request.getRemoteUser());
+        System.out.println("getParameter:"+request.getParameter("s"));
+        System.out.println("getSession:"+request.getSession().getId());
+
+    }
 
     @GetMapping("/add")
     public int add() {
@@ -50,5 +65,6 @@ public class InsertController {
     public List<GirlPO> upload(byte[] bytes) throws IOException {
         return  upLoadExecel.readXls(bytes);
     }
+
 
 }
