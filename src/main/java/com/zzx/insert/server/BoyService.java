@@ -20,6 +20,10 @@ public class BoyService {
     }
 
     public List<Boy> selectByAge(int age){
-        return boyMapper.selectByAge(21);
+        return boyMapper.selectByAge(age);
+    }
+
+    public List<Boy> selectByHigh(int age){
+        return boyMapper.selectByHigh(age);
     }
 }

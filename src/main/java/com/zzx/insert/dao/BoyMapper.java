@@ -11,11 +11,13 @@ public interface BoyMapper {
 
     int insertSelective(Boy record);
 
-    List<Boy> selectByAge(Integer age);
-
     Boy selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Boy record);
 
     int updateByPrimaryKey(Boy record);
+
+
+    List<Boy> selectByAge(Integer age);
+    List<Boy> selectByHigh(Integer high);
 }

@@ -27,4 +27,10 @@ public class BoyServerTest {
         List<Boy> boy=boyService.selectByAge(21);
         System.out.println(boy.get(0));
     }
+
+    @Test
+    public void getBoyByHigh(){
+        List<Boy> boy=boyService.selectByHigh(174);
+        System.out.println(boy.get(0));
+    }
 }
