@@ -82,8 +82,7 @@
 
 
 
-
-
+  <!--自定义sql-->
   <!--查找多条resultMap，查找一条resultType-->
 
   <resultMap id="Boys" type="com.zzx.insert.po.Boy" >
