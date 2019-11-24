@@ -79,4 +79,24 @@
       add_time = #{addTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+
+
+
+  <!--查找多条resultMap，查找一条resultType-->
+
+  <resultMap id="Boys" type="com.zzx.insert.po.Boy" >
+    <!--<id column="id" property="id" jdbcType="INTEGER" />-->
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="high" property="high" jdbcType="INTEGER" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <select id="selectByAge"  resultMap="Boys" parameterType="java.lang.Integer">
+    select age,high,add_time
+    from boy
+    where age=#{age,jdbcType=INTEGER}
+  </select>
+
+
 </mapper>
