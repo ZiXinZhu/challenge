@@ -1,6 +1,8 @@
 package com.zzx.insert.controller;
 
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.zzx.insert.annotate.Permission;
 import com.zzx.insert.dao.InsertDao;
 import com.zzx.insert.elecel.DownLoadExecel;
@@ -53,9 +55,16 @@ public class InsertController {
         return dao.add();
     }
 
+    /**
+     *   【PageHelper】分页插件
+     * @param response
+     * @throws IOException
+     */
     @Permission(isPass = true)
     @GetMapping("/all")
     public void girl( HttpServletResponse response) throws IOException {
+        PageInfo<GirlPO> page = PageHelper.startPage(1, 2).doSelectPageInfo(() -> dao.all());
+        System.out.println(page);
         downLoadExecel.down(dao.all(),response);
     }
 
