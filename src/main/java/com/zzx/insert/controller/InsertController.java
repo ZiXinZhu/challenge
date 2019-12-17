@@ -8,6 +8,8 @@ import com.zzx.insert.dao.InsertDao;
 import com.zzx.insert.elecel.DownLoadExecel;
 import com.zzx.insert.elecel.UpLoadExecel;
 import com.zzx.insert.po.GirlPO;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class InsertController {
+    Logger InfoLogger = LogManager.getLogger("InfoLogger");
+
+
 
     @Autowired
     InsertDao dao;
@@ -63,8 +68,11 @@ public class InsertController {
     @Permission(isPass = true)
     @GetMapping("/all")
     public void girl( HttpServletResponse response) throws IOException {
+
+        //BasicConfigurator.configure();   //log4j默认配置
         PageInfo<GirlPO> page = PageHelper.startPage(1, 2).doSelectPageInfo(() -> dao.all());
         System.out.println(page);
+        InfoLogger.info("【PageHelper】分页插件d打印日志！=========================================================");
         downLoadExecel.down(dao.all(),response);
     }
 
