@@ -13,6 +13,8 @@ public class Demo {
         boy.setAge(sum);
         methodTwo();
         return boy;
+        //正常
+        //异常
     }
 
     private void methodTwo(){
