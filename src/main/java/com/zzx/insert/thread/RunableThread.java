@@ -40,4 +40,5 @@ public class RunableThread implements Runnable{
             log.info("发送失败！");
         }
     }
+
 }

@@ -1,12 +1,15 @@
 package com.zzx.insert.jvm;
 
 import com.zzx.insert.po.Boy;
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @Description 字节码指令集
  * @Author Husky
  * @Date 2018/10/22 23:11
  * 数据、指令、控制
  */
+@Slf4j
 public class Demo {
     public  Boy methodOne(int i){
         int j=1;
@@ -15,14 +18,17 @@ public class Demo {
         boy.setAge(sum);
         methodTwo();
         return boy;
-        //正常
-        //异常
     }
 
     private void methodTwo(){
         int a=1;
         int b=1;
-        System.out.println(a+b);
+        log.info("結果：{}",a+b);
     }
 
+    public static void main(String[] args) {
+        int N_CPUS = Runtime.getRuntime().availableProcessors();
+        System.out.println(N_CPUS+"");
+        log.info("adasdad");
+    }
 }

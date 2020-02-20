@@ -7,6 +7,7 @@ import com.zzx.insert.annotate.Permission;
 import com.zzx.insert.dao.InsertDao;
 import com.zzx.insert.elecel.DownLoadExecel;
 import com.zzx.insert.elecel.UpLoadExecel;
+import com.zzx.insert.config.intercepetor.BaseInterceptor;
 import com.zzx.insert.po.GirlPO;
 
 import org.slf4j.Logger;
@@ -38,13 +39,13 @@ public class InsertController {
     UpLoadExecel upLoadExecel;
 
 
-
+    @BaseInterceptor.Interceptor(name = "LoginInterceptor", failed ="123546")
     @GetMapping("/zzz")
     public void request(HttpServletRequest request,String s) throws Throwable{
         System.out.println("getRequestURI:"+request.getRequestURI());
         System.out.println("getMethod:"+request.getMethod());
         System.out.println("getServletPath:"+request.getServletPath());
-        System.out.println("getHeader:"+request.getHeader(s));
+//        System.out.println("getHeader:"+request.getHeader(s));
         System.out.println("getContextPath:"+request.getContextPath());
         System.out.println("getRemoteUser:"+request.getRemoteUser());
         System.out.println("getParameter:"+request.getParameter("s"));
@@ -55,6 +56,8 @@ public class InsertController {
         System.out.println("Local host name: "+hostname);
         String remoteAddr = request.getRemoteAddr();
         System.out.println("remoteAddr "+remoteAddr);
+        System.out.println(this.getClass().getSimpleName());
+        System.out.println(this.getClass().getName());
     }
 
     @GetMapping("/add")
