@@ -72,8 +72,10 @@ public class InsertController {
      */
     @Permission(isPass = true)
     @GetMapping("/all")
-    public void girl( HttpServletResponse response) throws IOException {
+    public void girl(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        String referer = request.getHeader("Referer");
+        System.out.println(referer);
         //BasicConfigurator.configure();   //log4j默认配置
         PageInfo<GirlPO> page = PageHelper.startPage(1, 2).doSelectPageInfo(() -> dao.all());
         System.out.println(page);

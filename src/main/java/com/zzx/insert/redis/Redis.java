@@ -32,11 +32,16 @@ public class Redis {
         redisTemplate.opsForValue().set("key",myMap);
         String result= String.valueOf(redisTemplate.opsForValue().get("key"));
         log.info(result);
-        boolean b= redisTemplate.expire("zzx",1231,TimeUnit.SECONDS);
 
-        redisTemplate.opsForValue().set("zzz","zzz");
-        boolean bb= redisTemplate.opsForValue().setIfAbsent("123","qqq");
-        System.out.println("bb"+bb);
-        log.info(String.valueOf(redisTemplate.opsForValue().get("123")));
+        redisTemplate.delete("zzx");
+//        redisTemplate.opsForValue().set("zzx","zzz");
+        boolean b= redisTemplate.expire("zzx",30,TimeUnit.SECONDS);
+        System.out.println(String.valueOf(b)+":"+redisTemplate.opsForValue().get("zzx"));
+
+        redisTemplate.delete("123");
+        boolean bb= redisTemplate.opsForValue().setIfAbsent("123","qqq",30,TimeUnit.SECONDS);
+        System.out.println("bb:"+bb+redisTemplate.opsForValue().get("123"));
+        boolean bbb= redisTemplate.opsForValue().setIfAbsent("123","111");
+        log.info(String.valueOf("bbb:"+bbb+redisTemplate.opsForValue().get("123")));
     }
 }
