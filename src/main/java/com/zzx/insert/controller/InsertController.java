@@ -8,6 +8,7 @@ import com.zzx.insert.dao.InsertDao;
 import com.zzx.insert.elecel.DownLoadExecel;
 import com.zzx.insert.elecel.UpLoadExecel;
 import com.zzx.insert.config.intercepetor.BaseInterceptor;
+import com.zzx.insert.pattern.ResultBeanEntity;
 import com.zzx.insert.po.GirlPO;
 
 import org.slf4j.Logger;
@@ -93,7 +94,18 @@ public class InsertController {
     @Permission(isPass = true)
     @GetMapping("/upload")
     public List<GirlPO> upload(byte[] bytes) throws IOException {
-        return  upLoadExecel.readXls(bytes);
+         return upLoadExecel.readXls(bytes);
+    }
+
+    @Permission(isPass = true)
+    @GetMapping("/type")
+    public ResultBeanEntity<List<GirlPO>> type(byte[] bytes) throws IOException {
+        List<GirlPO> list=dao.all();
+        ResultBeanEntity<List<GirlPO>> listResultBeanEntity=new ResultBeanEntity<>();
+        listResultBeanEntity.setId(21);
+        listResultBeanEntity.setPhone("12");
+        listResultBeanEntity.setResult(list);
+        return  listResultBeanEntity;
     }
 
 
