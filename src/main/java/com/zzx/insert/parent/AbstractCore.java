@@ -3,7 +3,14 @@ package com.zzx.insert.parent;
 import org.springframework.stereotype.Component;
 
 @Component
-public abstract class AbstractCore implements Split, Load, Execute{
+public abstract class AbstractCore implements Split, Load, Execute {
+    {
+        System.out.println("父类非静态");
+    }
+
+    static {
+        System.out.println("父类静态");
+    }
 
 
     @Override
@@ -25,12 +32,12 @@ public abstract class AbstractCore implements Split, Load, Execute{
 
     abstract String executer();
 
-    public String enter(String code){
-        if("execute".equals(code)){
+    public String enter(String code) {
+        if ("execute".equals(code)) {
             return execute();
-        }else if("split".equals(code)){
+        } else if ("split".equals(code)) {
             return split();
-        }else {
+        } else {
             return load();
         }
     }
