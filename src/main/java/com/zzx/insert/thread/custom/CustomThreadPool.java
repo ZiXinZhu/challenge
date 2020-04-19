@@ -1,29 +1,40 @@
 package com.zzx.insert.thread.custom;
 
-import java.io.IOException;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Configuration
 public class CustomThreadPool {
-    public static void main(String[] args) throws InterruptedException, IOException {
-        int corePoolSize = 3;
-        int maximumPoolSize = 5;
-        long keepAliveTime = 10;
-        TimeUnit unit = TimeUnit.SECONDS;
 
+    @Bean
+    public ThreadPoolExecutor executer(){
+        //线程池中核心线程数的最大值
+        int corePoolSize = 3;
+        //线程池中能拥有最多线程数
+        int maximumPoolSize = 5;
+        //空闲线程的存活时间
+        long keepAliveTime = 10;
+        //keepAliveTime的单位
+        TimeUnit unit = TimeUnit.SECONDS;
+        //用于缓存任务的阻塞队列
         BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(2);
+        //指定创建线程的工厂
         ThreadFactory threadFactory = new NameTreadFactory();
+        //workQueue已满，且池中的线程数达到maximumPoolSize时，线程池拒绝添加新任务时采取的策略。
         RejectedExecutionHandler handler = new MyIgnorePolicy();
         ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit,
                 workQueue, threadFactory, handler);
         executor.prestartAllCoreThreads(); // 预启动所有核心线程
-
-        for (int i = 1; i <= 10; i++) {
-            MyTask task = new MyTask(String.valueOf(i));
-            executor.execute(task);
-        }
-
-        System.in.read(); //阻塞主线程
+//        for (int i = 1; i <= 10; i++) {
+//            MyTask task = new MyTask(String.valueOf(i));
+//            executor.execute(task);
+//        }
+//
+//        System.in.read(); //阻塞主线程
+        return executor;
     }
 
     static class NameTreadFactory implements ThreadFactory {
@@ -51,7 +62,8 @@ public class CustomThreadPool {
         }
     }
 
-    static class MyTask implements Runnable {
+
+    public static class MyTask implements Runnable {
         private String name;
 
         public MyTask(String name) {
