@@ -1,6 +1,6 @@
 package com.zzx.insert.design.module_adapter;
 
-public class LZ extends CodeMan implements People{
+public class LZ extends CodeMan implements People {
     @Override
     public void eat() {
         System.out.println("吃牛排");

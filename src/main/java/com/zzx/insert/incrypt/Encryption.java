@@ -18,7 +18,6 @@ public class Encryption {
     }
 
 
-
     public static String decrypt(String content) {
         try {
             byte[] encryptedBytes = hexToByteArray(content);

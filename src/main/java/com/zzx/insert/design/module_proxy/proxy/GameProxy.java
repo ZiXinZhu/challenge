@@ -19,7 +19,7 @@ public class GameProxy implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         log.info("before");
-        Object o= method.invoke(object,args);
+        Object o = method.invoke(object, args);
         log.info("after");
         return o;
     }

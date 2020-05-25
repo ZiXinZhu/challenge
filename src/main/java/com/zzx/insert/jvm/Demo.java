@@ -11,24 +11,24 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class Demo {
-    public  Boy methodOne(int i){
-        int j=1;
-        int sum=i+j;
-        Boy boy=new Boy();
+    public Boy methodOne(int i) {
+        int j = 1;
+        int sum = i + j;
+        Boy boy = new Boy();
         boy.setAge(sum);
         methodTwo();
         return boy;
     }
 
-    private void methodTwo(){
-        int a=1;
-        int b=1;
-        log.info("結果：{}",a+b);
+    private void methodTwo() {
+        int a = 1;
+        int b = 1;
+        log.info("結果：{}", a + b);
     }
 
     public static void main(String[] args) {
         int N_CPUS = Runtime.getRuntime().availableProcessors();
-        System.out.println(N_CPUS+"");
+        System.out.println(N_CPUS + "");
         log.info("adasdad");
     }
 }

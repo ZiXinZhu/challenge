@@ -1,13 +1,14 @@
 package com.zzx.insert.lambda;
 
 import lombok.Data;
+
 import java.util.List;
 
 
 public class StreamUseEntity {
 
     @Data
-    public class Test{
+    public class Test {
         private String s;
     }
 

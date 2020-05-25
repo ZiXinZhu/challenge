@@ -21,7 +21,7 @@ public class InsertApplication {
     private String password;
 
     @Bean
-    public RedissonClient getRedisson(){
+    public RedissonClient getRedisson() {
 
         Config config = new Config();
         config.useSingleServer().setAddress("redis://" + host + ":" + port).setPassword(password);
@@ -29,6 +29,7 @@ public class InsertApplication {
 //        config.useMasterSlaveServers().setMasterAddress("").setPassword("").addSlaveAddress(new String[]{"",""});
         return Redisson.create(config);
     }
+
     public static void main(String[] args) {
         SpringApplication.run(InsertApplication.class, args);
     }

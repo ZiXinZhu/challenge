@@ -2,7 +2,7 @@ package com.zzx.insert.rmi.Irim;
 
 import java.rmi.RemoteException;
 
-public class IServiceImp implements IService{
+public class IServiceImp implements IService {
 
     private static final long serialVersionUID = 1L;
 

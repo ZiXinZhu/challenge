@@ -1,7 +1,6 @@
 package com.zzx.insert.lambda.define;
 
 
-
 public class Artist {
     private String name;
     private int age;

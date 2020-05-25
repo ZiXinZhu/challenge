@@ -7,6 +7,7 @@ public class Bird extends Change {
 
     @Override
     public void action() {
-        System.out.println("鸟儿飞！");;
+        System.out.println("鸟儿飞！");
+        ;
     }
 }

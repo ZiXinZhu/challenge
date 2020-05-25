@@ -13,7 +13,7 @@ public class CarBuilder extends AbstractCarBuilder {
 
     @Override
     public AbstractCar build() {
-        AbstractCar car=new Car();
+        AbstractCar car = new Car();
         car.setColor(color);
         car.setOrder(order);
         car.setMoney(money);
@@ -22,19 +22,19 @@ public class CarBuilder extends AbstractCarBuilder {
 
     @Override
     public AbstractCarBuilder setOrder(List<String> order) {
-        this.order=order;
+        this.order = order;
         return this;
     }
 
     @Override
     public AbstractCarBuilder setColor(String color) {
-        this.color=color;
+        this.color = color;
         return this;
     }
 
     @Override
     public AbstractCarBuilder setMoney(String money) {
-        this.money=money;
+        this.money = money;
         return this;
     }
 }

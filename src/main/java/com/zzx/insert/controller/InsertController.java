@@ -27,9 +27,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class InsertController {
-//    Logger InfoLogger = LogManager.getLogger("InfoLogger");                  //log4j日志框架
+    //    Logger InfoLogger = LogManager.getLogger("InfoLogger");                  //log4j日志框架
     Logger InfoLogger = LoggerFactory.getLogger("InfoLogger");          //slf4j日志框架
-
 
 
     @Autowired
@@ -40,23 +39,23 @@ public class InsertController {
     UpLoadExecel upLoadExecel;
 
 
-    @BaseInterceptor.Interceptor(name = "LoginInterceptor", failed ="123546")
+    @BaseInterceptor.Interceptor(name = "LoginInterceptor", failed = "123546")
     @GetMapping("/zzz")
-    public void request(HttpServletRequest request,String s) throws Throwable{
-        System.out.println("getRequestURI:"+request.getRequestURI());
-        System.out.println("getMethod:"+request.getMethod());
-        System.out.println("getServletPath:"+request.getServletPath());
+    public void request(HttpServletRequest request, String s) throws Throwable {
+        System.out.println("getRequestURI:" + request.getRequestURI());
+        System.out.println("getMethod:" + request.getMethod());
+        System.out.println("getServletPath:" + request.getServletPath());
 //        System.out.println("getHeader:"+request.getHeader(s));
-        System.out.println("getContextPath:"+request.getContextPath());
-        System.out.println("getRemoteUser:"+request.getRemoteUser());
-        System.out.println("getParameter:"+request.getParameter("s"));
-        System.out.println("getSession:"+request.getSession().getId());
+        System.out.println("getContextPath:" + request.getContextPath());
+        System.out.println("getRemoteUser:" + request.getRemoteUser());
+        System.out.println("getParameter:" + request.getParameter("s"));
+        System.out.println("getSession:" + request.getSession().getId());
         InetAddress addr = InetAddress.getLocalHost();
-        System.out.println("Local HostAddress:"+addr.getHostAddress());
+        System.out.println("Local HostAddress:" + addr.getHostAddress());
         String hostname = addr.getHostName();
-        System.out.println("Local host name: "+hostname);
+        System.out.println("Local host name: " + hostname);
         String remoteAddr = request.getRemoteAddr();
-        System.out.println("remoteAddr "+remoteAddr);
+        System.out.println("remoteAddr " + remoteAddr);
         System.out.println(this.getClass().getSimpleName());
         System.out.println(this.getClass().getName());
     }
@@ -67,7 +66,8 @@ public class InsertController {
     }
 
     /**
-     *  【PageHelper】分页插件
+     * 【PageHelper】分页插件
+     *
      * @param response
      * @throws IOException
      */
@@ -81,31 +81,31 @@ public class InsertController {
         PageInfo<GirlPO> page = PageHelper.startPage(1, 2).doSelectPageInfo(() -> dao.all());
         System.out.println(page);
         InfoLogger.info("【PageHelper】分页插件d打印日志！=========================================================");
-        downLoadExecel.down(dao.all(),response);
+        downLoadExecel.down(dao.all(), response);
     }
 
     @Permission(isPass = false)
     @GetMapping("/one")
-    public GirlPO one(){
-       return dao.one(1);
+    public GirlPO one() {
+        return dao.one(1);
     }
 
 
     @Permission(isPass = true)
     @GetMapping("/upload")
     public List<GirlPO> upload(byte[] bytes) throws IOException {
-         return upLoadExecel.readXls(bytes);
+        return upLoadExecel.readXls(bytes);
     }
 
     @Permission(isPass = true)
     @GetMapping("/type")
     public ResultBeanEntity<List<GirlPO>> type(byte[] bytes) throws IOException {
-        List<GirlPO> list=dao.all();
-        ResultBeanEntity<List<GirlPO>> listResultBeanEntity=new ResultBeanEntity<>();
+        List<GirlPO> list = dao.all();
+        ResultBeanEntity<List<GirlPO>> listResultBeanEntity = new ResultBeanEntity<>();
         listResultBeanEntity.setId(21);
         listResultBeanEntity.setPhone("12");
         listResultBeanEntity.setResult(list);
-        return  listResultBeanEntity;
+        return listResultBeanEntity;
     }
 
 

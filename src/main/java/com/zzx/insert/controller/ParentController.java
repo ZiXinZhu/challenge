@@ -24,8 +24,8 @@ public class ParentController {
     AbstractCore abstractCore;
 
     @GetMapping("/parent.one")
-    public List<String> one(){
-        List<String> list= Lists.newArrayList();
+    public List<String> one() {
+        List<String> list = Lists.newArrayList();
         list.add(coreOne.enter("execute"));
         list.add(coreOne.enter("split"));
         list.add(coreOne.enter("load"));
@@ -33,16 +33,17 @@ public class ParentController {
     }
 
     @GetMapping("/parent.two")
-    public List<String> two(){
-        List<String> list= Lists.newArrayList();
+    public List<String> two() {
+        List<String> list = Lists.newArrayList();
         list.add(coreTwo.enter("execute"));
         list.add(coreTwo.enter("split"));
         list.add(coreTwo.enter("load"));
         return list;
     }
+
     @GetMapping("/parent.core")
-    public List<String> core(){
-        AbstractTest abstractTest=new AbstractTest() {
+    public List<String> core() {
+        AbstractTest abstractTest = new AbstractTest() {
             @Override
             public void setCode() {
 
@@ -53,7 +54,7 @@ public class ParentController {
                 return "OTHER";
             }
         };
-        List<String> list= Lists.newArrayList();
+        List<String> list = Lists.newArrayList();
         list.add(abstractCore.enter("execute"));
         list.add(abstractCore.enter("split"));
         list.add(abstractCore.enter("load"));

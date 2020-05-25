@@ -19,5 +19,6 @@ public interface BoyMapper {
 
 
     List<Boy> selectByAge(Integer age);
+
     List<Boy> selectByHigh(Integer high);
 }

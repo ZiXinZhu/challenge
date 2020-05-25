@@ -18,19 +18,20 @@ public class BoyServerTest {
     BoyService boyService;
 
     @Test
-    public void getBoy(){
-        Boy boy=boyService.selectByPrimaryKey(2);
+    public void getBoy() {
+        Boy boy = boyService.selectByPrimaryKey(2);
         System.out.println(boy.getAddTime());
     }
+
     @Test
-    public void getBoyByAge(){
-        List<Boy> boy=boyService.selectByAge(21);
+    public void getBoyByAge() {
+        List<Boy> boy = boyService.selectByAge(21);
         System.out.println(boy.get(0));
     }
 
     @Test
-    public void getBoyByHigh(){
-        List<Boy> boy=boyService.selectByHigh(174);
+    public void getBoyByHigh() {
+        List<Boy> boy = boyService.selectByHigh(174);
         System.out.println(boy.get(0));
     }
 }

@@ -5,12 +5,12 @@ public class Originator {
 
     private String state;
 
-    public Memory createMemory(){
+    public Memory createMemory() {
         return new Memory(state);
     }
 
-    public void reMemory(Memory memory){
-        this.state=memory.getState();
+    public void reMemory(Memory memory) {
+        this.state = memory.getState();
     }
 
     public String getState() {

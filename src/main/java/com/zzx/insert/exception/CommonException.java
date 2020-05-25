@@ -3,7 +3,7 @@ package com.zzx.insert.exception;
 /**
  * Created by Mr.John on 2018/12/12 21:24.
  **/
-public class CommonException extends RuntimeException{
+public class CommonException extends RuntimeException {
     public CommonException(String message) {
         super(message);
     }
@@ -13,17 +13,16 @@ public class CommonException extends RuntimeException{
         test();
 
         //TODO NO.2catch后没有return或者抛出新异常后面代码可以执行
-        try{
+        try {
             throw new Exception("参数越界");
-        }catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println("异常后");//可以执行
 
 
-
         //TODO NO.3catch后抛出新异常后面代码不执行
-        if(true) {
+        if (true) {
             throw new Exception("参数越界");
         }
         System.out.println("异常后"); //抛出异常，不会执行
@@ -31,9 +30,9 @@ public class CommonException extends RuntimeException{
 
 
     //TODO NO.1抛出异常后面的不再执行
-    public static void test() throws Exception  {
+    public static void test() throws Exception {
 
         throw new Exception("throw异常后面代码编译通不过");
-    //    System.out.println("异常后"); //编译错误，「无法访问的语句」
+        //    System.out.println("异常后"); //编译错误，「无法访问的语句」
     }
 }

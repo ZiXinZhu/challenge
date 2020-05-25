@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CustomThreadPool {
 
     @Bean
-    public ThreadPoolExecutor executer(){
+    public ThreadPoolExecutor executer() {
         //线程池中核心线程数的最大值
         int corePoolSize = 3;
         //线程池中能拥有最多线程数
@@ -57,7 +57,7 @@ public class CustomThreadPool {
 
         private void doLog(Runnable r, ThreadPoolExecutor e) {
             // 可做日志记录等
-            System.err.println( r.toString() + " rejected");
+            System.err.println(r.toString() + " rejected");
 //          System.out.println("completedTaskCount: " + e.getCompletedTaskCount());
         }
     }

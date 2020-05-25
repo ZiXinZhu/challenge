@@ -4,7 +4,7 @@ public class DoSomething {
 
 
     public static void main(String[] args) {
-        LZ lz=new LZ();
+        LZ lz = new LZ();
         lz.eat();
         lz.makeCode();
         lz.work();

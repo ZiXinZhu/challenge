@@ -8,15 +8,14 @@ import org.springframework.mail.javamail.JavaMailSender;
  * Created by Mr.John on 2018/12/19 22:02.
  **/
 @Slf4j
-public class RunableThread implements Runnable{
+public class RunableThread implements Runnable {
 
     private JavaMailSender sender;
     private String from;
     private String target;
     private String code;
 
-    public RunableThread(JavaMailSender sender, String from, String target, String code)
-    {
+    public RunableThread(JavaMailSender sender, String from, String target, String code) {
         this.sender = sender;
         this.from = from;
         this.target = target;
@@ -24,19 +23,16 @@ public class RunableThread implements Runnable{
     }
 
     @Override
-    public void run()
-    {
+    public void run() {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
         message.setTo(target);
         message.setSubject("汀兰科技");
         message.setText("您好，您的邮箱验证代码为:" + code);
-        try
-        {
+        try {
             sender.send(message);
             log.info("发送成功！");
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             log.info("发送失败！");
         }
     }

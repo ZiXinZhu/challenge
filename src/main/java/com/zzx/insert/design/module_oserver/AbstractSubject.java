@@ -19,7 +19,7 @@ public abstract class AbstractSubject {
 
     public void notifyOberver(String state) {
         for (AbstractObserver s : list
-        ) {
+                ) {
             s.update(state);
         }
     }

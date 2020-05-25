@@ -1,7 +1,6 @@
 package com.zzx.insert.thread.safe;
 
 
-
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -15,9 +14,9 @@ public class DoThreadLocal implements Runnable {
     //TODO 代替同步Map
     private static ThreadLocal<ConcurrentHashMap<String, String>> localMap = new ThreadLocal<>();
     //TODO 代替同步List
-    private static ThreadLocal<CopyOnWriteArrayList< String>> localList = new ThreadLocal<>();
+    private static ThreadLocal<CopyOnWriteArrayList<String>> localList = new ThreadLocal<>();
     //TODO 代替同步Set
-    private static ThreadLocal<CopyOnWriteArraySet< String>> localSet = new ThreadLocal<>();
+    private static ThreadLocal<CopyOnWriteArraySet<String>> localSet = new ThreadLocal<>();
 
     @Override
     public void run() {
@@ -48,12 +47,12 @@ public class DoThreadLocal implements Runnable {
         new Thread(new DoThreadLocal()).start();
 
         //map遍历
-        Map<String,String> map=new HashMap<>();
-        map.put("a","b");
-        map.put("c","d");
-        for (String key: map.keySet()
-             ) {
-            System.out.println("key="+key+",val="+map.get(key));
+        Map<String, String> map = new HashMap<>();
+        map.put("a", "b");
+        map.put("c", "d");
+        for (String key : map.keySet()
+                ) {
+            System.out.println("key=" + key + ",val=" + map.get(key));
         }
         System.out.println("------------------------------");
         for (Map.Entry<String, String> entry : map.entrySet()) {

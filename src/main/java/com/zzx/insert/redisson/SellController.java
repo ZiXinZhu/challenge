@@ -20,20 +20,21 @@ public class SellController {
     private RedissonClient redisson;
 
     @GetMapping("/save")
-    public void add(){
-        redisTemplate.opsForValue().set("aaa","100");
+    public void add() {
+        redisTemplate.opsForValue().set("aaa", "100");
     }
 
     String lockKey = "Redisson";
+
     @GetMapping("/sell")
-    public void sell(){
-        for(int i=0; i < 55; i++){
+    public void sell() {
+        for (int i = 0; i < 55; i++) {
             RLock lock = redisson.getLock(lockKey);
             lock.lock(60, TimeUnit.SECONDS); //设置60秒自动释放锁  （默认是30秒自动过期）
             int stock = Integer.parseInt(String.valueOf(redisTemplate.opsForValue().get("aaa")));
-            if(stock > 0){
-                redisTemplate.opsForValue().set("aaa",(stock-1)+"");
-                System.out.println("test1-lockkey:"+lockKey+",stock:"+(stock-1)+"");
+            if (stock > 0) {
+                redisTemplate.opsForValue().set("aaa", (stock - 1) + "");
+                System.out.println("test1-lockkey:" + lockKey + ",stock:" + (stock - 1) + "");
             }
             lock.unlock(); //释放锁
         }

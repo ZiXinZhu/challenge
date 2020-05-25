@@ -8,6 +8,7 @@ import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -17,27 +18,28 @@ import javax.servlet.http.HttpServletRequest;
 public class LoggerAOP {
 
     @Pointcut("execution(public * com.zzx.insert.controller.InsertController.*())")
-    public void verify() {}
+    public void verify() {
+    }
 
     @Before("verify()")
     public void doBefore(JoinPoint joinPoint) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
 
-        JSONObject jsonObject=new JSONObject();
+        JSONObject jsonObject = new JSONObject();
         // 获取请求的url
-        jsonObject.put("url",request.getRequestURL());
+        jsonObject.put("url", request.getRequestURL());
         // 获取请求的方式
-        jsonObject.put("method",request.getMethod());
+        jsonObject.put("method", request.getMethod());
         // 获取请求的ip地址
-        jsonObject.put("ip",request.getRemoteAddr());
+        jsonObject.put("ip", request.getRemoteAddr());
         // 获取类名
-        jsonObject.put("className",joinPoint.getSignature().getDeclaringTypeName());
+        jsonObject.put("className", joinPoint.getSignature().getDeclaringTypeName());
         // 获取类方法
-        jsonObject.put("classMethod",joinPoint.getSignature().getName());
+        jsonObject.put("classMethod", joinPoint.getSignature().getName());
         // 请求参数
-        jsonObject.put("args",joinPoint.getArgs());
-        log.info("request: {}",jsonObject);
+        jsonObject.put("args", joinPoint.getArgs());
+        log.info("request: {}", jsonObject);
     }
 
     @Around("verify()")
@@ -46,7 +48,7 @@ public class LoggerAOP {
             Object obj = proceedingJoinPoint.proceed();
             log.info("方法环绕结果 : {}" + obj);
             return obj;
-        }catch (Throwable e) {
+        } catch (Throwable e) {
             log.info("Throwable ...");
             return null;
         }
@@ -59,11 +61,12 @@ public class LoggerAOP {
 
     /**
      * 获取响应返回值
+     *
      * @param obj
      */
-    @AfterReturning(returning = "obj",pointcut = "verify()")
+    @AfterReturning(returning = "obj", pointcut = "verify()")
     public void doAfterReturning(Object obj) {
-        log.info("response: {}",obj.toString());
+        log.info("response: {}", obj.toString());
     }
 
     /**
@@ -71,7 +74,7 @@ public class LoggerAOP {
      */
     @AfterThrowing(pointcut = "verify()")
     public void doAfterThrowing() {
-        log.error("doAfterThrowing: {}"," 异常情况！！！！");
+        log.error("doAfterThrowing: {}", " 异常情况！！！！");
     }
 
 

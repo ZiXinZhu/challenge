@@ -41,19 +41,19 @@ public class UpLoadExecel {
                 if (id == null) {
                     continue;
                 }
-                girlPO.setId((int)Double.parseDouble(String.valueOf(getValue(id))));
+                girlPO.setId((int) Double.parseDouble(String.valueOf(getValue(id))));
 
                 HSSFCell age = hssfRow.getCell(1);
                 if (age == null) {
                     continue;
                 }
-                girlPO.setAge((int)Double.parseDouble(String.valueOf(getValue(age))));
+                girlPO.setAge((int) Double.parseDouble(String.valueOf(getValue(age))));
 
                 HSSFCell high = hssfRow.getCell(2);
                 if (high == null) {
                     continue;
                 }
-                girlPO.setHigh((int)Double.parseDouble(String.valueOf(getValue(high))));
+                girlPO.setHigh((int) Double.parseDouble(String.valueOf(getValue(high))));
 
                 HSSFCell time = hssfRow.getCell(3);
                 if (time == null) {

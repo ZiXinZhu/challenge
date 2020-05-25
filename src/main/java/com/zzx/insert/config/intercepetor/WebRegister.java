@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebRegister implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        InterceptorRegistration registration= registry.addInterceptor(new LoginInterceptor());
+        InterceptorRegistration registration = registry.addInterceptor(new LoginInterceptor());
         registration.addPathPatterns("/**");
 //        registration.excludePathPatterns("/user/*");
     }

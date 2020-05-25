@@ -2,11 +2,13 @@ package com.zzx.insert.lambda;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 import static com.zzx.insert.lambda.StreamUseEntity.*;
 
 
@@ -183,8 +185,8 @@ public class SimpleLambda {
      * 练习
      */
     @Test
-    public void practice(){
-        Map<String, Long> result = Stream.of("sadf", "sdf", "sdf").collect(Collectors.groupingBy(a-> a, Collectors.counting()));
+    public void practice() {
+        Map<String, Long> result = Stream.of("sadf", "sdf", "sdf").collect(Collectors.groupingBy(a -> a, Collectors.counting()));
         System.out.println(result);
     }
 
@@ -192,7 +194,7 @@ public class SimpleLambda {
      * 并行化
      */
     @Test
-    public void mapStream(){
+    public void mapStream() {
         Map map = new HashMap();
         Stream stream = map.entrySet().stream();
         stream.peek(System.out::println);

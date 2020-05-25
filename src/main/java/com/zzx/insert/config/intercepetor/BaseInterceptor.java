@@ -17,7 +17,7 @@ import java.util.Map;
 @Service
 public abstract class BaseInterceptor extends HandlerInterceptorAdapter {
 
-	public String success;
+    public String success;
     public String failed;
 
     public boolean isMyHandler(Object handler) {
@@ -50,11 +50,10 @@ public abstract class BaseInterceptor extends HandlerInterceptorAdapter {
 
     /**
      * 运行结果
-     * 
+     *
      * @param response
-     * @param isInterceptor
-     *            是否拦截,true拦截,跳转向failed指向页面,false:不拦截,跳转向success指向页面;
-     *            success和failed为空时不做任何操作
+     * @param isInterceptor 是否拦截,true拦截,跳转向failed指向页面,false:不拦截,跳转向success指向页面;
+     *                      success和failed为空时不做任何操作
      * @return
      * @throws Exception
      */
@@ -67,10 +66,10 @@ public abstract class BaseInterceptor extends HandlerInterceptorAdapter {
         } else {
             if (!failed.equals("")) {
 //                response.sendRedirect(failed);
-            	
-            	response.setContentType("application/json;charset=UTF-8");
-            	Map<String, Object> ret = new HashMap<String, Object>();
-        		ret.put("resultCode", failed);
+
+                response.setContentType("application/json;charset=UTF-8");
+                Map<String, Object> ret = new HashMap<String, Object>();
+                ret.put("resultCode", failed);
 //        		ret.put("resultDesc", RunnarBossConstant.resultCode.get(failed));
 //
 //            	response.getOutputStream().print(new String(JsonUtil.gson_ObjectToJSON_noPrettyPrinting(ret).getBytes("UTF-8"), "ISO-8859-1"));

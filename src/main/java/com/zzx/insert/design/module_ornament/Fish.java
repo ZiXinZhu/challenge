@@ -1,6 +1,6 @@
 package com.zzx.insert.design.module_ornament;
 
-public class Fish extends Change{
+public class Fish extends Change {
 
     public Fish(SunWuKong sunWuKong) {
         super(sunWuKong);

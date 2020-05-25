@@ -1,6 +1,6 @@
 package com.zzx.insert.design.moudle_strategy;
 
-public class SettpThree implements IStrategy{
+public class SettpThree implements IStrategy {
     @Override
     public void execut() {
 

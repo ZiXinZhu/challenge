@@ -20,6 +20,6 @@ public interface InsertDao {
     List<GirlPO> all();
 
     @Select("Select * from girl where id=#{id}")
-    GirlPO one(@Param("id")int id);
+    GirlPO one(@Param("id") int id);
 
 }

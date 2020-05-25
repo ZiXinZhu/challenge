@@ -1,4 +1,5 @@
 package com.zzx.insert.rmi;
+
 import com.zzx.insert.rmi.Irim.IService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ public class RMIClient {
             Class<? extends IService> serviceLimeClazz = serviceLime.getClass();
             System.out.println(serviceLime + " 是 " + serviceLimeClazz.getName() + " 的实例。 ");
             Class<?>[] interfaces = serviceLimeClazz.getInterfaces();
-            for(Class inter : interfaces){
+            for (Class inter : interfaces) {
                 System.out.println("存根类实现了 " + inter.getName() + " 接口！");
             }
             System.out.println(serviceLime.service("你好！"));

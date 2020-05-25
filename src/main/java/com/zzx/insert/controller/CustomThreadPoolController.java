@@ -14,15 +14,16 @@ public class CustomThreadPoolController {
 
     @Autowired
     ThreadPoolExecutor threadPoolExecutor;
+
     @GetMapping("/thread.execute")
-    public void execute(){
+    public void execute() {
         System.out.println("1111");
-        threadPoolExecutor.execute(new CustomThreadPool.MyTask("zhuziixn") );
+        threadPoolExecutor.execute(new CustomThreadPool.MyTask("zhuziixn"));
     }
 
     @GetMapping("/thread.execute.other")
-    public void executeOther(){
+    public void executeOther() {
         System.out.println("2221");
-        threadPoolExecutor.execute(new CustomThreadPool.MyTask("other") );
+        threadPoolExecutor.execute(new CustomThreadPool.MyTask("other"));
     }
 }

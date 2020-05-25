@@ -3,8 +3,8 @@ package com.zzx.insert.design.module_memorandum.white_back;
 public class DoMemory {
 
     public static void main(String[] args) {
-        Originator originator=new Originator();
-        Caretaker caretaker=new Caretaker();
+        Originator originator = new Originator();
+        Caretaker caretaker = new Caretaker();
 
         originator.setState("on");
 

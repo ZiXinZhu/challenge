@@ -8,10 +8,10 @@ public class Parent implements Cloneable {
 
     @Override
     public Parent clone() {
-        Parent parent=null;
+        Parent parent = null;
         try {
-            parent=(Parent) super.clone();
-            parent.list= (ArrayList<String>) this.list.clone();
+            parent = (Parent) super.clone();
+            parent.list = (ArrayList<String>) this.list.clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }

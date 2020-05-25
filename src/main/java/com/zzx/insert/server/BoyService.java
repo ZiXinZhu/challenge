@@ -15,15 +15,15 @@ public class BoyService {
     BoyMapper boyMapper;
 
 
-    public Boy selectByPrimaryKey(int id){
+    public Boy selectByPrimaryKey(int id) {
         return boyMapper.selectByPrimaryKey(id);
     }
 
-    public List<Boy> selectByAge(int age){
+    public List<Boy> selectByAge(int age) {
         return boyMapper.selectByAge(age);
     }
 
-    public List<Boy> selectByHigh(int age){
+    public List<Boy> selectByHigh(int age) {
         return boyMapper.selectByHigh(age);
     }
 }

@@ -6,7 +6,7 @@ public class Bush extends Dress {
 
     private List<Dress> list;
 
-    private String name ;
+    private String name;
 
     public Bush(String name) {
         this.name = name;

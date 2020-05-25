@@ -14,7 +14,7 @@ public class BoyController {
     BoyService boyServer;
 
     @GetMapping("/boy")
-    public Boy selectByPrimaryKey(){
-      return boyServer.selectByPrimaryKey(1);
+    public Boy selectByPrimaryKey() {
+        return boyServer.selectByPrimaryKey(1);
     }
 }

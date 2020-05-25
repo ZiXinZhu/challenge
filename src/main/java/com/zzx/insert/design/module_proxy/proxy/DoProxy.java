@@ -11,28 +11,28 @@ public class DoProxy {
 
     public static void main(String[] args) {
         //TODO 被代理对象
-        IGamePlayer player=new GamePlayer();
+        IGamePlayer player = new GamePlayer();
 
         //TODO 实现InvocationHandler接口方式
-        IGamePlayer gameProxy=(IGamePlayer) Proxy.newProxyInstance(player.getClass().getClassLoader(),player.getClass().getInterfaces(),new GameProxy(player));
-        gameProxy.login("zzx","123");
+        IGamePlayer gameProxy = (IGamePlayer) Proxy.newProxyInstance(player.getClass().getClassLoader(), player.getClass().getInterfaces(), new GameProxy(player));
+        gameProxy.login("zzx", "123");
         gameProxy.killBoss();
         gameProxy.upGrrad();
 
         //TODO 匿名内部类方式
-        IGamePlayer iGamePlayer= (IGamePlayer) Proxy.newProxyInstance(player.getClass().getClassLoader(), player.getClass().getInterfaces(), new InvocationHandler() {
+        IGamePlayer iGamePlayer = (IGamePlayer) Proxy.newProxyInstance(player.getClass().getClassLoader(), player.getClass().getInterfaces(), new InvocationHandler() {
                     @Override
                     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                         System.out.println("开始");
-                        Object o=method.invoke(player,args);
+                        Object o = method.invoke(player, args);
                         System.out.println("结束");
                         return o;
                     }
                 }
-                );
+        );
         iGamePlayer.killBoss();
         iGamePlayer.upGrrad();
-        iGamePlayer.login("zzx","123");
+        iGamePlayer.login("zzx", "123");
     }
 
 

@@ -1,10 +1,11 @@
 package com.zzx.insert.pattern;
 
-public class ResultBean <T>{
-    private int id=1;
-    private String name="zzx";
-    private String phone="123456";
+public class ResultBean<T> {
+    private int id = 1;
+    private String name = "zzx";
+    private String phone = "123456";
     private T result;
+
     public int getId() {
         return id;
     }

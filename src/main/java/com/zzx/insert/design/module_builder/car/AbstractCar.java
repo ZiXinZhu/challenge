@@ -34,14 +34,14 @@ public abstract class AbstractCar {
         return money;
     }
 
-    public void start(){
-        for (String s:order
-             ) {
-            if(s.equals("r")){
+    public void start() {
+        for (String s : order
+                ) {
+            if (s.equals("r")) {
                 run();
-            }else if (s.equals("s")){
+            } else if (s.equals("s")) {
                 stop();
-            }else {
+            } else {
                 open();
             }
         }
