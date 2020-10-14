@@ -27,6 +27,8 @@ public class Demo {
     }
 
     public static void main(String[] args) {
+
+        //查看cup核数
         int N_CPUS = Runtime.getRuntime().availableProcessors();
         System.out.println(N_CPUS + "");
         log.info("adasdad");
